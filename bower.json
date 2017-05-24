@@ -1,0 +1,24 @@
+{
+    "name": "gridi-jquery-plugins-to-top-scroller",
+    "description": "",
+    "main": "",
+    "authors": [
+        "Przemysław Dziadek <przemyslaw.dziadek@gmail.com>"
+    ],
+    "license": "MIT",
+    "keywords": [
+        "css",
+        "scss",
+        "gridi",
+        "jquery",
+        "scroller"
+    ],
+    "homepage": "https://github.com/gridi-framework/gridi-jquery-plugins-to-top-scroller",
+    "ignore": [
+        "**/.*",
+        "**/*.md",
+        "**/*.json",
+        "node_modules",
+        "bower_components"
+    ]
+}
