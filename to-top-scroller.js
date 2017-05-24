@@ -77,16 +77,20 @@
                 toTopScrollerElement.removeClass(settings.classes.scrollerLimitedOnBottom);
 
                 if(isFixedScroller()) {
-                    toTopScrollerElement.css({
-                        top: '',
-                        bottom: ''
-                    });
+                    if(settings.changeScrollerPositionWhenLimitedOnTop === true || settings.changeScrollerPositionWhenLimitedOnBottom === true) {
+                        toTopScrollerElement.css({
+                            top: '',
+                            bottom: ''
+                        });
+                    }
                     toTopScrollerElementHeight = toTopScrollerElement.outerHeight(true);
                     toTopScrollerElementTop = parseInt(toTopScrollerElement.position().top);
-                    toTopScrollerElement.css({
-                        top: toTopScrollerElementTop,
-                        bottom: 'auto'
-                    });
+                    if(settings.changeScrollerPositionWhenLimitedOnTop === true || settings.changeScrollerPositionWhenLimitedOnBottom === true) {
+                        toTopScrollerElement.css({
+                            top: toTopScrollerElementTop,
+                            bottom: 'auto'
+                        });
+                    }
                     isScrollerLimitedOnTop = false;
                     isScrollerLimitedOnBottom = false;
 
