@@ -14,6 +14,8 @@
         var settings = $.extend(true, {
             animateDuration: 400,
             animateFunction: 'linear',
+            changeScrollerPositionWhenLimitedOnTop: true,
+            changeScrollerPositionWhenLimitedOnBottom: true,
             elements: {
                 topLimiter: false,
                 bottomLimiter: false
@@ -130,7 +132,9 @@
                 newToTopScrollerElementTop = limitOffsetTop - currentScrollTop;
 
                 if(newToTopScrollerElementTop > toTopScrollerElementTop) {
-                    toTopScrollerElement.css('top', newToTopScrollerElementTop);
+                    if(settings.changeScrollerPositionWhenLimitedOnTop === true) {
+                        toTopScrollerElement.css('top', newToTopScrollerElementTop);
+                    }
                     if(isScrollerLimitedOnTop === false) {
                         isScrollerLimitedOnTop = true;
                         toTopScrollerElement.addClass(settings.classes.scrollerLimitedOnTop);
@@ -138,7 +142,9 @@
                         toTopScrollerElement.trigger('scroller-start-limited-on-top');
                     }
                 } else if(isScrollerLimitedOnTop === true) {
-                    toTopScrollerElement.css('top', toTopScrollerElementTop);
+                    if(settings.changeScrollerPositionWhenLimitedOnTop === true) {
+                        toTopScrollerElement.css('top', toTopScrollerElementTop);
+                    }
                     isScrollerLimitedOnTop = false;
                     toTopScrollerElement.removeClass(settings.classes.scrollerLimitedOnTop);
                     removeElementsClasses(settings.elementsClasses.onScrollerLimitedOnTop);
@@ -152,7 +158,9 @@
                 newToTopScrollerElementTop = (limitOffsetTop - currentScrollTop) - toTopScrollerElementHeight;
 
                 if(newToTopScrollerElementTop < toTopScrollerElementTop && isScrollerLimitedOnTop === false) {
-                    toTopScrollerElement.css('top', newToTopScrollerElementTop);
+                    if(settings.changeScrollerPositionWhenLimitedOnBottom === true) {
+                        toTopScrollerElement.css('top', newToTopScrollerElementTop);
+                    }
                     if(isScrollerLimitedOnBottom === false) {
                         isScrollerLimitedOnBottom = true;
                         toTopScrollerElement.addClass(settings.classes.scrollerLimitedOnBottom);
@@ -160,7 +168,7 @@
                         toTopScrollerElement.trigger('scroller-start-limited-on-bottom');
                     }
                 } else {
-                    if(isScrollerLimitedOnTop === false && isScrollerLimitedOnBottom === true) {
+                    if(isScrollerLimitedOnTop === false && isScrollerLimitedOnBottom === true && settings.changeScrollerPositionWhenLimitedOnBottom === true) {
                         toTopScrollerElement.css('top', toTopScrollerElementTop);
                     }
 
