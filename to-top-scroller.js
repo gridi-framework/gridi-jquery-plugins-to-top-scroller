@@ -79,7 +79,7 @@
                         bottom: ''
                     });
                     toTopScrollerElementHeight = toTopScrollerElement.outerHeight(true);
-                    toTopScrollerElementTop = parseInt(toTopScrollerElement.css('top'));
+                    toTopScrollerElementTop = parseInt(toTopScrollerElement.position().top);
                     toTopScrollerElement.css({
                         top: toTopScrollerElementTop,
                         bottom: 'auto'
