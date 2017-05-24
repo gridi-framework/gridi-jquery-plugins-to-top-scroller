@@ -66,7 +66,8 @@
 
         function refresh() {
             windowHeight = $(window).height();
-            chackWindowPositionPosition();
+            toTopScrollerElement.removeClass(settings.classes.windowIsTop);
+            toTopScrollerElement.removeClass(settings.classes.windowIsBottom);
 
             if(topLimiterElement.length > 0 || bottomLimiterElement.length > 0) {
                 $(window).off('scroll', chackScrollerPosition);
@@ -91,6 +92,8 @@
                     $(window).on('scroll', chackScrollerPosition);
                 }
             }
+
+            chackWindowPositionPosition();
         }
 
         function chackWindowPositionPosition() {
