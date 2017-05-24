@@ -65,7 +65,6 @@
         }
 
         function refresh() {
-            console.log('fefresh');
             windowHeight = $(window).height();
             chackWindowPositionPosition();
 
